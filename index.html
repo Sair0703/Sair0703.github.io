@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sai Anand — Software Engineer</title>
+<meta name="description" content="Sai Anand — Software Engineer building full-stack products and AI/agentic systems. Live projects, code, and resume." />
+<style>
+  :root{
+    --bg:#0d0f14; --panel:#161a22; --panel2:#1d222c; --ink:#eef1f6; --muted:#9aa3b2;
+    --line:#262c39; --accent:#7c5cff; --accent2:#22d3ee; --brand:#ff5d73;
+    --shadow:0 14px 40px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:radial-gradient(1100px 500px at 85% -10%,#1b1836 0,var(--bg) 55%);
+    color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+  /* hero */
+  header{padding:80px 0 48px;text-align:center}
+  .name{font-size:52px;font-weight:800;letter-spacing:-.03em;
+    background:linear-gradient(110deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .role{font-size:20px;color:var(--muted);margin-top:8px}
+  .blurb{max-width:640px;margin:18px auto 0;color:#c3cad9;font-size:16px}
+  .links{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);
+    padding:11px 18px;border-radius:11px;font-weight:600;font-size:14.5px;transition:all .15s}
+  .btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .btn.primary{background:linear-gradient(110deg,var(--accent),#5b8bff);border:none}
+
+  h2{font-size:14px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin:56px 0 22px;font-weight:700}
+
+  /* projects */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;
+    box-shadow:var(--shadow);transition:transform .18s,border-color .18s;display:flex;flex-direction:column}
+  .card:hover{transform:translateY(-4px);border-color:var(--accent)}
+  .card h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .card .tag{display:inline-block;font-size:11px;color:var(--accent2);background:var(--panel2);
+    border:1px solid var(--line);padding:2px 8px;border-radius:6px;margin:10px 6px 0 0}
+  .card p{color:#c3cad9;font-size:14.5px;margin:14px 0}
+  .card .foot{margin-top:auto;display:flex;gap:10px;padding-top:8px}
+  .chip{font-size:13px;font-weight:700;padding:7px 13px;border-radius:9px;border:1px solid var(--line);background:var(--panel2)}
+  .chip.live{background:linear-gradient(110deg,var(--brand),var(--accent));border:none;color:#fff}
+  .live-dot{width:7px;height:7px;border-radius:50%;background:#34d399;display:inline-block;margin-right:6px;vertical-align:middle}
+
+  /* skills */
+  .skills{display:flex;flex-wrap:wrap;gap:9px}
+  .skill{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:13.5px;color:#c3cad9}
+
+  footer{text-align:center;color:var(--muted);font-size:14px;padding:60px 0 50px}
+  footer a{color:var(--accent2)}
+  @media(max-width:600px){.name{font-size:38px}header{padding:56px 0 36px}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="name">Sai Anand</div>
+      <div class="role">Software Engineer · Full-Stack &amp; AI / Computer Vision</div>
+      <p class="blurb">I build full-stack products and agentic AI systems — and I ship them. Currently doing computer-vision &amp; spatial-AI work at GridRaster (full-time offer). Below are live, working projects with source code.</p>
+      <div class="links">
+        <a class="btn primary" href="https://github.com/Sair0703" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://linkedin.com/in/sai-anand" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="mailto:sa0316151@gmail.com">Email</a>
+      </div>
+    </header>
+
+    <h2>Projects</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Redline</h3>
+        <div>
+          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">LLM</span><span class="tag">agents</span>
+        </div>
+        <p>A self-verifying AI code reviewer. A two-stage agentic pipeline finds defects in any git diff or GitHub PR, then an adversarial <em>verify</em> pass refutes false positives before you see them. Reviews real PRs and posts inline comments.</p>
+        <div class="foot">
+          <a class="chip live" href="https://redline-cs25.onrender.com" target="_blank" rel="noopener"><span class="live-dot"></span>Live demo</a>
+          <a class="chip" href="https://github.com/Sair0703/Redline" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Wanderly</h3>
+        <div>
+          <span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">LLM</span>
+        </div>
+        <p>An AI travel platform: a multi-turn natural-language concierge, a personalized recommendation engine with explainable matches, and an LLM itinerary planner over real worldwide data — with reviews, price intelligence, and an analytics dashboard.</p>
+        <div class="foot">
+          <a class="chip live" href="https://wanderly-p5v1.onrender.com" target="_blank" rel="noopener"><span class="live-dot"></span>Live demo</a>
+          <a class="chip" href="https://github.com/Sair0703/Wanderly" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>WorkerShield</h3>
+        <div>
+          <span class="tag">Python</span><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">LLM</span>
+        </div>
+        <p>An agentic labor-rights platform that helps workers compute unpaid wages and file federal/state complaints end-to-end — a wage-calculation engine (overtime, tip-credit rules) plus an NLP interface surfacing relevant labor-code violations.</p>
+        <div class="foot">
+          <a class="chip live" href="https://impact-engine.replit.app/workershield" target="_blank" rel="noopener"><span class="live-dot"></span>Live demo</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Real-Time Sign Language Detection</h3>
+        <div>
+          <span class="tag">TensorFlow</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">LSTM</span>
+        </div>
+        <p>Real-time ASL recognition — 92% accuracy across 20+ gesture classes at 20–25 FPS on CPU, using an LSTM over MediaPipe keypoint features with a live inference pipeline.</p>
+        <div class="foot">
+          <a class="chip live" href="https://sair0703.github.io/Sign-Language-Project/" target="_blank" rel="noopener"><span class="live-dot"></span>Live demo</a>
+        </div>
+      </div>
+
+    </div>
+
+    <h2>Experience &amp; Recognition</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>GridRaster — CV &amp; Spatial AI</h3>
+        <p>Real-time perception (object detection, depth estimation, 3D reconstruction) optimized for low-latency inference on ARM-based edge hardware for defense &amp; robotics. <strong>Full-time offer earned.</strong></p>
+      </div>
+      <div class="card">
+        <h3>ARM Create AI Optimization Challenge</h3>
+        <p>Hackathon — optimized AI model inference for efficient, low-latency execution on ARM edge hardware.</p>
+      </div>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="skills">
+      <span class="skill">Python</span><span class="skill">TypeScript</span><span class="skill">Java</span><span class="skill">C/C++</span>
+      <span class="skill">React</span><span class="skill">FastAPI</span><span class="skill">Node.js</span><span class="skill">Next.js</span>
+      <span class="skill">PostgreSQL</span><span class="skill">Redis</span><span class="skill">MongoDB</span>
+      <span class="skill">AWS</span><span class="skill">Docker</span><span class="skill">CI/CD</span>
+      <span class="skill">PyTorch</span><span class="skill">TensorFlow</span><span class="skill">OpenCV</span>
+      <span class="skill">LLM agents</span><span class="skill">computer vision</span><span class="skill">edge inference</span>
+    </div>
+
+    <footer>
+      Oregon State University · B.S. Computer Science · GPA 3.8 &nbsp;•&nbsp;
+      <a href="https://github.com/Sair0703" target="_blank" rel="noopener">github.com/Sair0703</a>
+    </footer>
+  </div>
+</body>
+</html>
