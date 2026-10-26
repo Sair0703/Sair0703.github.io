@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sai Anand — Software Engineer</title>
-<meta name="description" content="Sai Anand — Software Engineer building full-stack products and AI/agentic systems. Live projects, code, and resume." />
+<meta name="description" content="Sai Anand — Software Engineer building embedded C/C++ firmware, real-time systems, computer vision, and full-stack products. Live projects, code, and resume." />
 <style>
   :root{
     --bg:#0d0f14; --panel:#161a22; --panel2:#1d222c; --ink:#eef1f6; --muted:#9aa3b2;
@@ -44,6 +44,14 @@
   .card p{color:#c3cad9;font-size:14.5px;margin:14px 0}
   .card .foot{margin-top:auto;display:flex;gap:10px;padding-top:8px}
   .chip{font-size:13px;font-weight:700;padding:7px 13px;border-radius:9px;border:1px solid var(--line);background:var(--panel2)}
+  .card.featured{grid-column:1/-1;border-color:var(--accent)}
+  .card.featured h3{font-size:23px}
+  .badge{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;
+    background:linear-gradient(110deg,var(--brand),var(--accent));padding:3px 9px;border-radius:6px;margin-bottom:10px;align-self:flex-start}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:4px 0 14px}
+  .stat{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .stat b{display:block;font-size:20px;color:var(--ink)}
+  .stat span{font-size:12.5px;color:var(--muted)}
   .chip.live{background:linear-gradient(110deg,var(--brand),var(--accent));border:none;color:#fff}
   .live-dot{width:7px;height:7px;border-radius:50%;background:#34d399;display:inline-block;margin-right:6px;vertical-align:middle}
 
@@ -60,8 +68,8 @@
   <div class="wrap">
     <header>
       <div class="name">Sai Anand</div>
-      <div class="role">Software Engineer · Computer Vision &amp; Full-Stack</div>
-      <p class="blurb">I work on computer vision and spatial AI at GridRaster, where we build real-time 3D perception and edge-AI systems for defense and autonomous robotics. Outside of that I build full-stack and agentic-AI projects — usually taking them all the way to a live, working product. A few are below.</p>
+      <div class="role">Software Engineer · Embedded C/C++ · Computer Vision · Full-Stack</div>
+      <p class="blurb">I work on computer vision and spatial AI at GridRaster, where we build real-time 3D perception and edge-AI systems for defense and autonomous robotics. Outside of that I build embedded firmware and real-time systems, from a preemptive RTOS for ARM Cortex-M to satellite attitude-control software, plus full-stack and agentic-AI projects. I like taking things all the way to a live, working product. A few are below.</p>
       <div class="links">
         <a class="btn primary" href="https://github.com/Sair0703" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://linkedin.com/in/sai-anand" target="_blank" rel="noopener">LinkedIn</a>
@@ -71,6 +79,48 @@
 
     <h2>Projects</h2>
     <div class="grid">
+
+      <div class="card featured">
+        <span class="badge">Featured · Embedded</span>
+        <h3>CubeSat Attitude Control Flight Software</h3>
+        <div>
+          <span class="tag">C++17</span><span class="tag">fixed-point</span><span class="tag">ARM Cortex-M3</span><span class="tag">custom RTOS</span><span class="tag">WebAssembly</span><span class="tag">QEMU</span>
+        </div>
+        <p>Flight software that keeps a small satellite pointed where it's told. It detumbles the spacecraft, fuses gyro and sun-sensor data, slews with a rate-limited anti-windup PID, detects frozen or lying sensors and drops into SAFE mode, and dumps reaction-wheel momentum with magnetorquers. All in Q16.16 fixed point for an FPU-less Cortex-M3, running as a task on my own RTOS. The same C++ compiles to a 5 KB WebAssembly module, so the live demo runs the real flight code: kick the satellite or break its sensors and watch it recover.</p>
+        <div class="stats">
+          <div class="stat"><b>3.5 s</b><span>detumble from 8°/s</span></div>
+          <div class="stat"><b>0.14°</b><span>overshoot on a 90° slew</span></div>
+          <div class="stat"><b>0.52 s</b><span>to detect a sensor fault</span></div>
+          <div class="stat"><b>0.04°</b><span>final pointing error</span></div>
+        </div>
+        <div class="foot">
+          <a class="chip live" href="https://sair0703.github.io/cubesat-adcs/" target="_blank" rel="noopener"><span class="live-dot"></span>Live demo</a>
+          <a class="chip" href="https://github.com/Sair0703/cubesat-adcs" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Cortex-M3 RTOS from Scratch</h3>
+        <div>
+          <span class="tag">C++17</span><span class="tag">ARM assembly</span><span class="tag">Cortex-M3</span><span class="tag">QEMU</span><span class="tag">CI</span>
+        </div>
+        <p>A preemptive real-time kernel with no vendor libraries, C runtime, or heap: priority scheduling with time slicing, PendSV context switching in assembly, semaphores with timeouts, and a type-safe message queue. Startup code, linker script, and UART driver written by hand. Fits in 2.8 KB; CI boots it in QEMU on every push.</p>
+        <div class="foot">
+          <a class="chip" href="https://github.com/Sair0703/cortex-m-rtos" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Bare-Metal Two-Board Rock-Paper-Scissors</h3>
+        <div>
+          <span class="tag">C++</span><span class="tag">AVR ATmega328P</span><span class="tag">UART</span><span class="tag">I2C</span><span class="tag">interrupts</span>
+        </div>
+        <p>Two microcontrollers play each other over a serial link. Register-level UART, timer, and I2C LCD drivers with no Arduino libraries, and a fault-tolerant protocol with CRC-8, parser resynchronization, and a lock-before-reveal handshake so neither board can peek. The live demo lets you add line noise and watch it recover.</p>
+        <div class="foot">
+          <a class="chip live" href="https://sair0703.github.io/bare-metal-rps/" target="_blank" rel="noopener"><span class="live-dot"></span>Live demo</a>
+          <a class="chip" href="https://github.com/Sair0703/bare-metal-rps" target="_blank" rel="noopener">Code</a>
+        </div>
+      </div>
 
       <div class="card">
         <h3>Redline</h3>
@@ -123,7 +173,9 @@
 
     <h2>Skills</h2>
     <div class="skills">
-      <span class="skill">Python</span><span class="skill">TypeScript</span><span class="skill">Java</span><span class="skill">C/C++</span>
+      <span class="skill">C/C++</span><span class="skill">ARM Cortex-M</span><span class="skill">RTOS</span><span class="skill">bare-metal firmware</span>
+      <span class="skill">device drivers</span><span class="skill">UART / I2C</span><span class="skill">QEMU</span>
+      <span class="skill">Python</span><span class="skill">TypeScript</span><span class="skill">Java</span>
       <span class="skill">React</span><span class="skill">FastAPI</span><span class="skill">Node.js</span><span class="skill">Next.js</span>
       <span class="skill">PostgreSQL</span><span class="skill">Redis</span><span class="skill">MongoDB</span>
       <span class="skill">AWS</span><span class="skill">Docker</span><span class="skill">CI/CD</span>
